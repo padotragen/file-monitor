@@ -1,18 +1,18 @@
 # file-monitor
 .
-├── README.md
-├── checkFolderSize.py
-├── docker-compose.yml
-├── file-monitor
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── monitor.py
-│   └── requirements.txt
-├── filemonitoring.py
-└── folder-cleanup
-    ├── Dockerfile
-    ├── docker-compose.yml
-    └── folderCleanup.py
+|-- ./checkFolderSize.py
+|-- ./file-monitor
+|   |-- ./file-monitor/Dockerfile
+|   |-- ./file-monitor/requirements.txt
+|   |-- ./file-monitor/docker-compose.yml
+|   `-- ./file-monitor/monitor.py
+|-- ./filemonitoring.py
+|-- ./folder-cleanup
+|   |-- ./folder-cleanup/Dockerfile
+|   |-- ./folder-cleanup/docker-compose.yml
+|   `-- ./folder-cleanup/folderCleanup.py
+|-- ./docker-compose.yml
+`-- ./README.md
 
 # Running the docker-compose.yml file from the root requires and .env file
 # Template for the file below
