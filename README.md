@@ -4,7 +4,6 @@
 .
 ├── README.md
 ├── checkFolderSize.py
-├── directory-structure.md
 ├── docker-compose.yml
 ├── file-monitor
 │   ├── Dockerfile
@@ -17,7 +16,7 @@
     ├── docker-compose.yml
     └── folderCleanup.py
 
-3 directories, 12 files
+3 directories, 11 files
 
 ```
 
