@@ -1,6 +1,28 @@
 # file-monitor
-# Running the docker-compose.yml file from the root requires and .env file
-# Template for the file below
+## Directory Structure
+```
+.
+├── README.md
+├── checkFolderSize.py
+├── directory-structure.md
+├── docker-compose.yml
+├── file-monitor
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── monitor.py
+│   └── requirements.txt
+├── filemonitoring.py
+└── folder-cleanup
+    ├── Dockerfile
+    ├── docker-compose.yml
+    └── folderCleanup.py
+
+3 directories, 12 files
+
+```
+
+## Running the docker-compose.yml file from the root requires and .env file
+###Template for the file below
 ```
 # File Monitoring Configuration
 SOURCE_DIR="/app/MonitoredFolder"
