@@ -22,7 +22,7 @@
 ```
 
 ## Running the docker-compose.yml file from the root requires and .env file
-###Template for the file below
+### Template for the file below
 ```
 # File Monitoring Configuration
 SOURCE_DIR="/app/MonitoredFolder"
