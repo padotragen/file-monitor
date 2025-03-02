@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  file-monitor:
+    build: .
+    container_name: file-monitor
+    restart: always # Ensures it restarts if it stops or on system reboot
+    environment:
+      - SOURCE_DIR=/app/MonitoredFolder
+      - DEST_DIR=/app/SecondFolder
+    volumes:
+      - "/Users/w.wrightg/File Monitoring/MonitoredFolder:/app/MonitoredFolder"
+      - "/Users/w.wrightg/File Monitoring/SecondFolder:/Users/w.wrightg/File Monitoring/SecondFolder"
+
+volumes:
+  monitored_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/Users/w.wrightg/Documents/Python/File Monitoring/MonitoredFolder"
+      o: bind
+  destination_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/Users/w.wrightg/Documents/Python/File Monitoring/SecondFolder"
+      o: bind

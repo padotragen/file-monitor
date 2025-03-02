@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  folder-cleanup:
+    build: .
+    container_name: folder-cleanup
+    restart: always # Ensures it restarts if it stops or on system reboot
+    environment:
+      - SOURCE_DIR=/app/MonitoredFolder
+    volumes:
+      - destination_volume:/app/MonitoredFolder
+
+volumes:
+  monitored_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/Users/w.wrightg/Documents/Python/File Monitoring/MonitoredFolder"
+      o: bind
+  destination_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/Users/w.wrightg/Documents/Python/File Monitoring/SecondFolder"
+      o: bind

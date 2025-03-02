@@ -1,0 +1,42 @@
+services:
+  redis:
+    image: redis:alpine3.21 # Using a specific Redis version
+    container_name: redis-server
+    restart: always
+    ports:
+      - "6379:6379" # Expose Redis for local testing if needed
+    volumes:
+      - redis_data:/data
+    env_file:
+      - .env # Load environment variables
+
+  file-monitor:
+    build:
+      context: ./file-monitor
+      dockerfile: Dockerfile
+    #container_name: file-monitor
+    restart: always # Ensures it restarts if it stops or on system reboot
+    env_file:
+      - .env # Load environment variables
+    depends_on:
+      - redis # Ensures Redis starts before file-monitor
+    volumes:
+      - "${MONITORED_FOLDER}:/app/MonitoredFolder"
+      - "${SECOND_FOLDER}:/app/SecondFolder"
+    deploy:
+      replicas: 2 # Set the number of replicas to 2
+
+  folder-cleanup:
+    build:
+      context: ./folder-cleanup
+      dockerfile: Dockerfile
+    container_name: folder-cleanup
+    restart: always # Ensures it restarts if it stops or on system reboot
+    env_file:
+      - .env # Load environment variables
+    volumes:
+      - "${SECOND_FOLDER}:/app/MonitoredFolder"
+
+volumes:
+  redis_data:
+    driver: local # Persistent Redis storage
